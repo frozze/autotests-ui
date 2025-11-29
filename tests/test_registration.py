@@ -1,6 +1,8 @@
+import pytest
 from playwright.sync_api import sync_playwright
 
-# Открываем браузер с использованием Playwright
+@pytest.mark.regression
+@pytest.mark.registration
 def test_successful_registration():
     with sync_playwright() as playwright:
         # Запускаем Chromium браузер в обычном режиме (не headless)
@@ -34,4 +36,3 @@ def test_successful_registration():
         page = context.new_page()
 
         page.goto("https://nikita-filonov.github.io/qa-automation-engineer-ui-course/#/dashboard")
-
